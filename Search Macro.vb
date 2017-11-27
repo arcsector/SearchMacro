@@ -49,12 +49,13 @@ Sub Search()
     
     Dim rngHeaders As Range
     Dim rngHdrFound As Range
-    
+    Dim searcher As String
+    Set searcher = ""
     'Find PROD ID location in first sheet of CSV
     Set rngHeaders = Intersect(Sheets(1).UsedRange, Sheets(1).Rows(1))
-    Set rngHdrFound = rngHeaders.Find("PRODID")
+            Set rngHdrFound = rngHeaders.Find(searcher)
     If rngHdrFound Is Nothing Then
-        MsgBox ("Cannot find Header ""PRODID"". Please name the Header this title.")
+                    MsgBox ("Cannot find Header, Please name the Header this title.")
         Exit Sub
     End If
     
@@ -69,25 +70,25 @@ Sub Search()
         Exit Sub
     End If
 
-    'Add *000 to PRODID's in second sheet
-    For Each cellAdd In rng
-        'Only add *000 if the cell contains numbers
-        If IsPRODID(cellAdd.Value) = True Then
-            'Only add *000 if the cell doesn't have it yet
-            If cellAdd.Value <> "^[\*]" Then
-                'Only add *000 if the cell isn't "Agent Code"
-                If cellAdd.Value <> "Agent Code" Then
-                    'Only Add *000 if the cell isn't "Group Debt"
-                    If cellAdd.Value <> "GROUP DEBT" Then
-                        'Only add *000 if the cell isn't empty
-                        If IsEmpty(cellAdd) = False Then
-                            cellAdd.Value = "*000" & cellAdd.Value
-                        End If
-                    End If
-                End If
-            End If
-        End If
-    Next cellAdd
+'    'Add *000 to PRODID's in second sheet
+'    For Each cellAdd In rng
+'        'Only add *000 if the cell contains numbers
+'        If IsPRODID(cellAdd.Value) = True Then
+'            'Only add *000 if the cell doesn't have it yet
+'            If cellAdd.Value <> "^[\*]" Then
+'                'Only add *000 if the cell isn't "Agent Code"
+'                If cellAdd.Value <> "Agent Code" Then
+'                    'Only Add *000 if the cell isn't "Group Debt"
+'                    If cellAdd.Value <> "GROUP DEBT" Then
+'                        'Only add *000 if the cell isn't empty
+'                        If IsEmpty(cellAdd) = False Then
+'                            cellAdd.Value = "*000" & cellAdd.Value
+'                        End If
+'                    End If
+'                End If
+'            End If
+'        End If
+'    Next cellAdd
     
     'Define new Worksheet to paste results
     Dim ws As Worksheet
