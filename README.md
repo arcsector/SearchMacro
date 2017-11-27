@@ -23,3 +23,8 @@ In order to use this script as intended, one must first create a Searchbook in E
    * Click on your "Search" Macro that we defined earlier, and click "Run"
    * If you are presented with any security prompts, allow the macro access
    * Wait. Depending on the volume of data, there may be a few seconds of run time.
+### Final Steps
+1. To save this workbook as a Macro-enabled workbook, click on the "File" tab in the top left-hand corner in Excel
+2. Click "Save As" in the window that opens up
+3. From the drop-down menu select "Excel Macro-enabled Workbook (*.xlsm)" and click "Save"
+4. Now your workbook will be able to be reused
